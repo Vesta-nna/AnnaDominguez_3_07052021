@@ -6242,7 +6242,8 @@ main {
 }
 #location h2 {
   padding-left: 1em;
-  font-size: 16px;
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 #business {
@@ -6439,6 +6440,10 @@ header h1 {
   width: fit-content;
   margin-bottom: 3em;
   padding: 1em 3em;
+}
+#menu button h2 {
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 #menu .card {

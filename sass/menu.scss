@@ -89,6 +89,10 @@ header {
     width: fit-content;
     margin-bottom: 3em;
     padding: 1em 3em;
+    h2 {
+      font-size: inherit;
+      font-weight: inherit;
+    }
   }
 }
 
