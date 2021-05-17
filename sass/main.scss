@@ -34,7 +34,6 @@ html {
 // END RESET
 
 
-
 body {
   width: 100%;
   font-family: 'Roboto', sans-serif;
@@ -48,6 +47,23 @@ h1 {
   padding: .25em
 }
 
+button {
+  border: none;
+  padding: 1em;
+  margin: 2em 0;
+  font-size: large;
+  color: white;
+  background-image: linear-gradient(-10deg, $primary-color, $secondary-color);
+  border-radius: 50px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  transition: background-image 2s linear 2s, box-shadow 1s;
+  &:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    background-image: linear-gradient(-10deg, $primary-color, $secondary-color 75%);
+    cursor: pointer;
+  }
+}
+
 // HEADER
 
 header {
@@ -57,214 +73,60 @@ header {
   z-index: 1;
 }
 
-// MAIN
-main {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-#location {
-  padding: 1em;
-  background-color: rgb(230, 230, 230);
-  display: flex;
-  color: rgb(66, 66, 66);
-  justify-content: center;
-
-  .map-marker {
-    @extend %fa-icon;
-    @extend .fas;
-    &:before {
-      content: fa-content($fa-var-map-marker-alt);
-    }
-  }
-  p {
-    padding-left: 1em;
-  }
-}
-
-// BUSINESS
-#business {
-  background-color: rgb(243, 243, 243);
-  padding: 2em;
-  text-align: center;
-  h2 {
-    padding-bottom: .5em;
-  }
-  p {
-    color: rgb(112, 112, 112);
-  }
-  button {
-    border: none;
-    margin: 2em 0;
-    padding: 1em;
-    font-size: large;
-    color: white;
-    background-image: linear-gradient(-10deg, $primary-color, $secondary-color);
-    border-radius: 50px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    transition: background-image 2s linear 2s, box-shadow 1s;
-    &:hover {
-      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-      background-image: linear-gradient(-10deg, $primary-color, $secondary-color 75%);
-      cursor: pointer;
-    }
-  }
-}
-
-
-
-// OPERATION
-#operation {
-  padding: 3em 2em;
-  h2 {
-    padding-bottom: 1em;
-  }
-  .cards {
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-  }
-}
-
-
-#operation .card {
-  display: flex;
-  flex-direction: row;
-  background-color: white;
-  padding: 2em;
-  border-radius: 20px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  transition: box-shadow 1s ease-out;
-  &:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  }
-  &>p {
-    position: absolute;
-    color: white;
-    margin-left: -2.7em;
-    margin-top: -0.2em;
-    background-color: $primary-color;
-    border-radius: 30px;
-    padding: 0.25em 0.5em;
-  }
-
-  .step {
-    width: 100%;
-    display: flex;
-    font-weight: bold;
-    
-    i {
-      color: grey;
-      font-size: larger;
-      padding: 0 1em;
-    }
-  }
-
-  &:hover {
-    background-color: #F4ECFF;
-    i {
-      color: $primary-color;
-    }
-  }
-}
-
-@media screen and (min-width: 1000px) {
-  #operation {
-    .cards {
-      flex-direction: row;
-      justify-content: space-between;
-      .card {
-        width: 80%;
-      }
-    }
-  }
-}
-
-
-// RESTAURANTS
-#restaurants {
-  background-color: rgb(243, 243, 243);
-  padding: 3em 1em;
-  h2 {
-    padding-bottom: 1em;
-  }
-  .cards {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-  }
-}
-
-// CARD
-#restaurants .card {
-  background-color: white;
-  border-radius: 20px;
+.cover {
+  object-fit: cover;
   width: 100%;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.icon {
+  @extend %fa-icon;
+  @extend .far;
+  font-size: x-large;
+  cursor: pointer;
+  &::before {
+    content: fa-content($fa-var-heart);
+  }
+  $prog-bar-dur: .3s;
+  $prog-bar-delay: 0s;  
+  
   &:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    cursor: pointer;
-  }
-  img {
-    object-fit: cover;
-    width: 100%;
-    height: 175px;
-    border-radius: 20px 20px 0 0 ;
-  }
-  .new {
-    background-color: $tertiary-color;
-    position: absolute;
-    border-radius: 5px;
-    padding: .5em 1em;
-    margin-top: 1em;
-    margin-left: -7em;
-    font-weight: bold;
-    font-size: 0.9em;
-    color: #00a87e;
-  }
-
-  .info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-    p {
-      padding-top: 0.25em;
-    }
-  }
-  .icon {
-    @extend %fa-icon;
-    @extend .far;
-    font-size: x-large;
-    cursor: pointer;
-    &:after {
-      content: fa-content($fa-var-heart);
-    }
-    transition: color 1s ease-in 1s;
-    
-    &:hover {
-      @extend .fas;
-      &:before {
-        color: $secondary-color;
-        background: linear-gradient(200deg, $primary-color, $secondary-color);
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
-        content: fa-content($fa-var-heart);
-      }
-      
-    }
+    @extend .fas;
+    content: fa-content($fa-var-heart);
+    animation: progress-bar $prog-bar-dur $prog-bar-delay forwards;
   }
 }
 
-@media screen and (min-width: 1000px) {
-  #restaurants {
-    .cards {
-      flex-direction: row;
-    }
+
+@keyframes progress-bar{
+  0% {
+    background: linear-gradient(200deg, white,50%, $secondary-color);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  25% {
+    background: linear-gradient(200deg, white, 40%, $secondary-color);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  50% {
+    background: linear-gradient(200deg, white, 20%, $primary-color, $secondary-color,);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  75% {
+    background: linear-gradient(200deg, white, 10%, $primary-color, $secondary-color);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  100% {
+    background: linear-gradient(200deg, $primary-color, $secondary-color);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
   }
 }
 
+@import "index.scss";
+@import "menu.scss";
 
 // FOOTER
 footer {
