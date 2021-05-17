@@ -6,10 +6,11 @@
  */
 .fa,
 .fas,
-#restaurants .card .icon:hover,
+#menu .card:hover .add-icon,
 #location .map-marker,
+.icon:hover,
 .far,
-#restaurants .card .icon,
+.icon,
 .fal,
 .fad,
 .fab {
@@ -22,7 +23,7 @@
   line-height: 1;
 }
 
-#restaurants .card .icon, #location .map-marker {
+#menu .card:hover .add-icon, #location .map-marker, .icon {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -124,18 +125,20 @@
 
 .fa.fa-pull-left,
 .fas.fa-pull-left,
+#menu .card:hover .fa-pull-left.add-icon,
 #location .fa-pull-left.map-marker,
 .far.fa-pull-left,
-#restaurants .card .fa-pull-left.icon,
+.fa-pull-left.icon,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
   margin-right: 0.3em;
 }
 .fa.fa-pull-right,
 .fas.fa-pull-right,
+#menu .card:hover .fa-pull-right.add-icon,
 #location .fa-pull-right.map-marker,
 .far.fa-pull-right,
-#restaurants .card .fa-pull-right.icon,
+.fa-pull-right.icon,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
   margin-left: 0.3em;
@@ -6097,8 +6100,9 @@ readers do not read off random characters that represent icons */
 }
 .fa,
 .fas,
-#restaurants .card .icon:hover,
-#location .map-marker {
+#menu .card:hover .add-icon,
+#location .map-marker,
+.icon:hover {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
 }
@@ -6115,7 +6119,7 @@ readers do not read off random characters that represent icons */
   src: url("./webfonts/fa-regular-400.eot");
   src: url("./webfonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("./webfonts/fa-regular-400.woff2") format("woff2"), url("./webfonts/fa-regular-400.woff") format("woff"), url("./webfonts/fa-regular-400.ttf") format("truetype"), url("./webfonts/fa-regular-400.svg#fontawesome") format("svg");
 }
-.far, #restaurants .card .icon {
+.far, .icon {
   font-family: "Font Awesome 5 Free";
   font-weight: 400;
 }
@@ -6153,6 +6157,23 @@ h1 {
   padding: 0.25em;
 }
 
+button {
+  border: none;
+  padding: 1em;
+  margin: 2em 0;
+  font-size: large;
+  color: white;
+  background-image: linear-gradient(-10deg, #9356DC, #FF79DA);
+  border-radius: 50px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: background-image 2s linear 2s, box-shadow 1s;
+}
+button:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background-image: linear-gradient(-10deg, #9356DC, #FF79DA 75%);
+  cursor: pointer;
+}
+
 header {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   padding-top: 0.5em;
@@ -6160,6 +6181,50 @@ header {
   z-index: 1;
 }
 
+.cover {
+  object-fit: cover;
+  width: 100%;
+}
+
+.icon {
+  font-size: x-large;
+  cursor: pointer;
+}
+.icon::before {
+  content: "";
+}
+.icon:hover {
+  content: "";
+  animation: progress-bar 0.3s 0s forwards;
+}
+
+@keyframes progress-bar {
+  0% {
+    background: linear-gradient(200deg, white, 50%, #FF79DA);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  25% {
+    background: linear-gradient(200deg, white, 40%, #FF79DA);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  50% {
+    background: linear-gradient(200deg, white, 20%, #9356DC, #FF79DA);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  75% {
+    background: linear-gradient(200deg, white, 10%, #9356DC, #FF79DA);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+  100% {
+    background: linear-gradient(200deg, #9356DC, #FF79DA);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+}
 main {
   display: grid;
   grid-template-columns: 1fr;
@@ -6189,22 +6254,6 @@ main {
 }
 #business p {
   color: #707070;
-}
-#business button {
-  border: none;
-  margin: 2em 0;
-  padding: 1em;
-  font-size: large;
-  color: white;
-  background-image: linear-gradient(-10deg, #9356DC, #FF79DA);
-  border-radius: 50px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: background-image 2s linear 2s, box-shadow 1s;
-}
-#business button:hover {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  background-image: linear-gradient(-10deg, #9356DC, #FF79DA 75%);
-  cursor: pointer;
 }
 
 #operation {
@@ -6291,8 +6340,6 @@ main {
   cursor: pointer;
 }
 #restaurants .card img {
-  object-fit: cover;
-  width: 100%;
   height: 175px;
   border-radius: 20px 20px 0 0;
 }
@@ -6316,25 +6363,156 @@ main {
 #restaurants .card .info p {
   padding-top: 0.25em;
 }
-#restaurants .card .icon {
-  font-size: x-large;
-  cursor: pointer;
-  transition: color 1s ease-in 1s;
-}
-#restaurants .card .icon:after {
-  content: "";
-}
-#restaurants .card .icon:hover:before {
-  color: #FF79DA;
-  background: linear-gradient(200deg, #9356DC, #FF79DA);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  content: "";
-}
 
 @media screen and (min-width: 1000px) {
   #restaurants .cards {
     flex-direction: row;
+  }
+}
+header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+header a {
+  float: left;
+  padding-left: 1em;
+  z-index: 5;
+}
+header a i {
+  font-size: x-large;
+}
+header h1 {
+  width: 100%;
+  text-align: center;
+}
+
+.head {
+  max-height: 700px;
+}
+
+#menu {
+  background-color: #ebebeb;
+}
+#menu header {
+  display: flex;
+  z-index: 8;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em 1em 1em 1em;
+  margin-top: -50px;
+  background-color: #ebebeb;
+  border-radius: 50px 50px 0 0;
+  box-shadow: inherit;
+}
+#menu header h2 {
+  font-family: "Shrikhand", cursive;
+}
+#menu header .icon {
+  padding-right: 1em;
+}
+#menu article {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#menu article h3 {
+  align-self: flex-start;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding-bottom: 0.25em;
+}
+#menu article .line {
+  align-self: flex-start;
+  width: 50px;
+  border-bottom: #99e2d0 4px solid;
+}
+#menu article .cards {
+  width: 100%;
+  padding: 1em 0;
+  display: grid;
+  gap: 1em;
+}
+#menu button {
+  width: fit-content;
+  margin-bottom: 3em;
+  padding: 1em 3em;
+}
+
+#menu .card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  display: grid;
+  grid-template-columns: auto 0.5fr 0;
+}
+#menu .card .dish {
+  padding: 1em 1em;
+  overflow: hidden;
+  white-space: nowrap;
+}
+#menu .card .dish h4, #menu .card .dish p {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+#menu .card .price {
+  padding: 1em 0.5em;
+  font-weight: 600;
+  justify-self: end;
+  align-self: flex-end;
+}
+#menu .card .add {
+  width: 0px;
+}
+#menu .card:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  animation: change-grid 0s 0s both;
+}
+#menu .card:hover .add {
+  animation: add-check 2s both;
+  background-color: #99e2d0;
+  border-radius: 0 10px 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#menu .card:hover .add-icon {
+  color: white;
+}
+#menu .card:hover .add-icon::before {
+  content: "";
+}
+
+@keyframes change-grid {
+  0% {
+    display: grid;
+    grid-template-columns: auto 0.5fr 0px;
+  }
+  25% {
+    display: grid;
+    grid-template-columns: auto 0.5fr 15px;
+  }
+  50% {
+    display: grid;
+    grid-template-columns: auto 0.5fr 30px;
+  }
+  75% {
+    display: grid;
+    grid-template-columns: auto 0.5fr 45px;
+  }
+  100% {
+    display: grid;
+    grid-template-columns: auto 0.5fr 50px;
+  }
+}
+@keyframes add-check {
+  0% {
+    width: 0px;
+  }
+  100% {
+    width: 100%;
   }
 }
 footer {
