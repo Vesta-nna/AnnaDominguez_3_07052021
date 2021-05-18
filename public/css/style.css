@@ -6474,10 +6474,10 @@ header h1 {
 }
 #menu .card:hover {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-  animation: change-grid 0s 0s both;
+  animation: change-grid 1s both;
 }
 #menu .card:hover .add {
-  animation: add-check 2s both;
+  animation: add-check 1s both;
   background-color: #99e2d0;
   border-radius: 0 10px 10px 0;
   display: flex;
@@ -6494,30 +6494,20 @@ header h1 {
 @keyframes change-grid {
   0% {
     display: grid;
-    grid-template-columns: auto 0.5fr 0px;
-  }
-  25% {
-    display: grid;
-    grid-template-columns: auto 0.5fr 15px;
-  }
-  50% {
-    display: grid;
-    grid-template-columns: auto 0.5fr 30px;
-  }
-  75% {
-    display: grid;
-    grid-template-columns: auto 0.5fr 45px;
+    grid-template-columns: auto 0.5fr 0;
   }
   100% {
     display: grid;
-    grid-template-columns: auto 0.5fr 50px;
+    grid-template-columns: auto 0.5fr 75px;
   }
 }
 @keyframes add-check {
-  0% {
-    width: 0px;
+  from {
+    margin-left: 100%;
+    overflow-x: hidden;
   }
-  100% {
+  to {
+    margin-left: 0%;
     width: 100%;
   }
 }
