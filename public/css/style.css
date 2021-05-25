@@ -33,7 +33,7 @@
   }
 }
 header {
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
   padding-top: 0.5em;
   text-align: center;
   z-index: 1;
@@ -434,6 +434,11 @@ button:hover {
   color: #99e2d0;
 }
 
+@media screen and (min-width: 1920px) {
+  .spinner i {
+    font-size: 4em;
+  }
+}
 h1 {
   font-family: "Shrikhand", cursive;
   padding: 0.25em;
@@ -6581,10 +6586,8 @@ html, body {
   body {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     width: 1920px;
     margin: 0 auto;
-    height: 100%;
   }
 }
 
