@@ -13,3 +13,10 @@
   animation: fade-out .4s ease-in-out both;
   animation-delay: 1.5s;
 }
+
+@media screen and (min-width: 1920px)
+{
+  i {
+    font-size: xx-large;
+  }
+}
