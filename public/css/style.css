@@ -104,7 +104,7 @@ main {
 #location h2 {
   padding-left: 1em;
   font-size: inherit;
-  font-weight: inherit;
+  font-weight: 600;
 }
 
 #business {
