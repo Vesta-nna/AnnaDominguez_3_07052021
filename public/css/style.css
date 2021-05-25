@@ -277,23 +277,23 @@ header h1 {
 #menu header .icon {
   padding-right: 1em;
 }
-#menu section {
+#menu .dishes {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-#menu section h3 {
+#menu .dishes h3 {
   align-self: flex-start;
   font-weight: 300;
   text-transform: uppercase;
   padding-bottom: 0.25em;
 }
-#menu section .line {
+#menu .dishes .line {
   align-self: flex-start;
   width: 50px;
   border-bottom: #99e2d0 4px solid;
 }
-#menu section .cards {
+#menu .dishes .cards {
   padding: 1em 0;
   display: grid;
   grid-template-columns: 1fr;
@@ -306,6 +306,8 @@ header h1 {
   align-items: center;
 }
 #menu button {
+  display: block;
+  margin: auto;
   width: fit-content;
   margin-bottom: 3em;
   padding: 1em 3em;

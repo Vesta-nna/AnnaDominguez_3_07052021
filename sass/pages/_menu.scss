@@ -28,7 +28,7 @@ header {
   background-color: rgb(235, 235, 235);
   header {
     display: flex;
-    justify-content:space-between;
+    justify-content:  space-between;
     align-items: center;
     padding: 2em 1em 1em 1em;
     margin-top: -50px;
@@ -71,6 +71,8 @@ header {
     align-items: center;
   }
   button {
+    display: block;
+    margin: auto;    
     width: fit-content;
     margin-bottom: 3em;
     padding: 1em 3em;
