@@ -1,15 +1,27 @@
 // VARIABLES
-$primary-color: #9356DC;
-$secondary-color: #FF79DA;
-$tertiary-color: #99e2d0;
+@import "helpers/_variables.scss";
+@import "helpers/_mixins.scss";
+@import "helpers/_keyframes.scss";
 
-$fa-font-path: "./webfonts";
+// LAYOUT
+@import "layout/_header.scss";
+@import "layout/_footer.scss";
 
+// PAGES
+@import "pages/_index.scss";
+@import "pages/_menu.scss";
+
+// COMPONENTS
+@import "components/_button.scss";
+@import "components/_like.scss";
+
+// FONT FAMILY
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap');
+
+// FONT AWESOME
 @import "scss/fontawesome.scss";
 @import "scss/solid.scss";
 @import "scss/regular.scss";
-
 
 // RESET DEFAULT CSS SETTINGS
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
@@ -36,10 +48,35 @@ html {
 
 body {
   width: 100%;
+  height: 100%;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   display: grid;
   grid-template-columns: 1fr;
+  .spinner {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
+    i {
+      color: $tertiary-color;
+    }
+    animation: fade-out .4s ease-in-out both;
+    animation-delay: 1.5s;
+  }
+}
+  
+.center {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 h1 {
@@ -47,109 +84,8 @@ h1 {
   padding: .25em
 }
 
-button {
-  border: none;
-  padding: 1em;
-  margin: 2em 0;
-  font-size: large;
-  color: white;
-  background-image: linear-gradient(-10deg, $primary-color, $secondary-color);
-  border-radius: 50px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  transition: background-image 2s linear 2s, box-shadow 1s;
-  &:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    background-image: linear-gradient(-10deg, $primary-color, $secondary-color 75%);
-    cursor: pointer;
-  }
-}
-
 // HEADER
-
-header {
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  padding-top: .5em;
-  text-align: center;
-  z-index: 1;
-}
-
 .cover {
   object-fit: cover;
   width: 100%;
-}
-
-.icon {
-  @extend %fa-icon;
-  @extend .far;
-  font-size: x-large;
-  cursor: pointer;
-  &::before {
-    content: fa-content($fa-var-heart);
-  }
-  $prog-bar-dur: .3s;
-  $prog-bar-delay: 0s;  
-  
-  &:hover {
-    @extend .fas;
-    content: fa-content($fa-var-heart);
-    animation: progress-bar $prog-bar-dur $prog-bar-delay forwards;
-  }
-}
-
-
-@keyframes progress-bar{
-  0% {
-    background: linear-gradient(200deg, white,50%, $secondary-color);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-  }
-  25% {
-    background: linear-gradient(200deg, white, 40%, $secondary-color);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-  }
-  50% {
-    background: linear-gradient(200deg, white, 20%, $primary-color, $secondary-color,);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-  }
-  75% {
-    background: linear-gradient(200deg, white, 10%, $primary-color, $secondary-color);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-  }
-  100% {
-    background: linear-gradient(200deg, $primary-color, $secondary-color);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
-  }
-}
-
-@import "index.scss";
-@import "menu.scss";
-
-// FOOTER
-footer {
-  color: white;
-  padding: 1em 1em 3em 1em;
-  background-color: rgb(65, 65, 65);
-
-  h3 {
-    font-family: 'Shrikhand', cursive;
-    padding-bottom: 1em;
-  }
-  a {
-    color: white;
-    display: flex;
-    i {
-      width: 1em;
-      padding-right: 1em;
-      &+p {
-        font-weight: bolder;
-      }
-    }
-  }
-  p {
-    padding: .25em 0;
-  }
 }

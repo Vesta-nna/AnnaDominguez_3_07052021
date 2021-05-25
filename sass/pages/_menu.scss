@@ -1,3 +1,7 @@
+body {
+  width: 100%;
+}
+
 header {
   display: flex;
   flex-direction: row;
@@ -20,34 +24,10 @@ header {
   max-height: 700px;
 }
 
-@mixin transform-style($style){
-  transform-style: $style;
- -moz-transform-style: $style;
- -o-transform-style: $style;
- -ms-transform-style: $style;
- -webkit-transform-style: $style;
-}
-
-@mixin transition($time){
- transition: $time;
- -webkit-transition: $time;
- -moz-transition: $time;
- -o-transition: $time;
-}
-
-@mixin transform-style($style){
-  transform-style: $style;
- -moz-transform-style: $style;
- -o-transform-style: $style;
- -ms-transform-style: $style;
- -webkit-transform-style: $style;
-}
-
 #menu {
   background-color: rgb(235, 235, 235);
   header {
     display: flex;
-    z-index: 8;
     justify-content:space-between;
     align-items: center;
     padding: 2em 1em 1em 1em;
@@ -62,11 +42,10 @@ header {
       padding-right: 1em;
     }
   }
-  article {
-    padding: 1em;
+  section {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
     h3 {
       align-self: flex-start;
       font-weight: 300;
@@ -79,11 +58,17 @@ header {
       border-bottom: $tertiary-color 4px solid;
     }
     .cards {
-      width: 100%;
       padding: 1em 0;
       display: grid;
+      grid-template-columns: 1fr;
       gap: 1em;
     }
+  }
+  article {
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   button {
     width: fit-content;
@@ -96,34 +81,62 @@ header {
   }
 }
 
+
 #menu .card {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  display: grid;
-  grid-template-columns: auto 0.5fr 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 340px;
+  animation: slide-in 1s both;
   .dish {
+    width: 100%;
     padding: 1em 1em;
+    display: flex;
+    flex-direction: column;
+    text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    h4, p {
+    h4 {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
     }
-  }
-  .price {
-    padding: 1em .5em;
-    font-weight: 600;
-    justify-self: end;
-    align-self: flex-end;
+    .bottom-line {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .dish--info {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .price {
+        // position: relative;
+        // transition: all .5s ease-in-out;
+        font-weight: 600;
+        padding-left: 1em;
+      }
+    }
   }
   .add {
-    width: 0px;
+    // transition: all .7s ease-in-out;
+    width: 0%;
+    overflow-x: hidden;
+    i {
+      visibility: hidden;
+    }
   }
   &:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    animation: change-grid 1s both;
+    .dish h4, .dish-info {
+      width: 75%;
+    }
+    .price {
+      animation: move-price .5s both;
+    }
     .add {
       animation: add-check 1s both;
       background-color: $tertiary-color;
@@ -131,36 +144,10 @@ header {
       display: flex;
       justify-content: center;
       align-items: center;
-      &-icon {
+      i {
         color: white;
-        @extend %fa-icon;
-        @extend .fas;
-        &::before {
-          content: fa-content($fa-var-check-circle);
-        }
+        visibility: visible;
       }
     }
-  }
-}
-
-@keyframes change-grid {
-  0% {
-    display: grid;
-    grid-template-columns: auto 0.5fr 0;
-  }
-  100% {
-    display: grid;
-    grid-template-columns: auto 0.5fr 75px;
-  }
-}
-
-@keyframes add-check{
-  from {
-    margin-left: 100%;
-    overflow-x: hidden;
-  }
-  to {
-    margin-left: 0%;
-    width: 100%;
   }
 }

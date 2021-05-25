@@ -1,0 +1,67 @@
+@keyframes heart {
+  90% {
+    clip-path: circle(85% at 50% 100%);
+  }
+  100% {
+    clip-path: initial;
+  }
+}
+/* hide empty heart stroke after heart fill anim */
+@keyframes empty-heart {
+  100% {
+    opacity: 0;
+  }
+}
+
+%text-gradient {
+  background: linear-gradient(190deg, $primary-color 0%, $secondary-color 95%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.bookmark {
+  position: relative;
+  .fa-heart {
+    cursor: pointer;
+  }
+  .fas::before { /* use pseudo element with transition to avoid it at page load */
+    content: "\f004";
+    position: absolute;
+    left: 0;
+    top:0;
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: center bottom;
+    @extend %text-gradient;
+    clip-path: circle(85% at 50% 100%);
+    transition: transform .6s linear, opacity .6s linear;
+  }
+  &--card {
+    // right: 24px;
+    // top: 198px;
+    .fa-heart {
+      font-size: 1.75rem;
+    }
+  }
+  &--menu {
+    // right: 38px;
+    // top: 50px;
+    @include low-mobile {
+      // right: 30px;
+      // top: 40px;
+    }
+    .fa-heart {
+      font-size: 2rem;
+    }
+  }
+  &:hover {
+    .fas::before {
+      opacity: 1;
+      transform: scale(1);
+      animation: heart .6s ease-in-out forwards;
+    }
+    .far {
+      animation: empty-heart .1s .5s linear forwards;
+    }
+  }
+}
