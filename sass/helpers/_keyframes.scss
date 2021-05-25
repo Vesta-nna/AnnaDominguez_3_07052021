@@ -1,26 +1,22 @@
 @keyframes move-price{
-  from {
-    // transform: translateX(0%);
-  }
-  to {
-    // transform: translateX(100%);
+  100% {
+    transform: translateX(-10%);
   }
 }
 
 @keyframes add-check{
   from {
-    margin-left: 100%;
+    width: 0;
     overflow-x: hidden;
   }
   to {
-    margin-left: 0%;
-    width: 15%;
+    width: 25%;
   }
 }
 
 @keyframes slide-in {
   0% {
-    transform: translateY(20px);
+    transform: translateY(40%);
     opacity: 0;
   }
   100% {
@@ -36,5 +32,20 @@
   100% {
     opacity: 0;
     z-index: -1;
+  }
+}
+
+@keyframes heart {
+  90% {
+    clip-path: circle(85% at 50% 100%);
+  }
+  100% {
+    clip-path: initial;
+  }
+}
+
+@keyframes empty-heart {
+  100% {
+    opacity: 0;
   }
 }

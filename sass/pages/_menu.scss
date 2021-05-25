@@ -114,16 +114,12 @@ header {
         white-space: nowrap;
       }
       .price {
-        // position: relative;
-        // transition: all .5s ease-in-out;
         font-weight: 600;
         padding-left: 1em;
       }
     }
   }
   .add {
-    // transition: all .7s ease-in-out;
-    width: 0%;
     overflow-x: hidden;
     i {
       visibility: hidden;
@@ -138,13 +134,14 @@ header {
       animation: move-price .5s both;
     }
     .add {
-      animation: add-check 1s both;
+      animation: add-check 1s ease-in-out both;
       background-color: $tertiary-color;
       border-radius: 0 10px 10px 0;
       display: flex;
       justify-content: center;
       align-items: center;
       i {
+        font-size: 1.3em;
         color: white;
         visibility: visible;
       }
