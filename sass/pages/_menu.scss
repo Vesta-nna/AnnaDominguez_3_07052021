@@ -83,7 +83,6 @@ header {
   }
 }
 
-
 #menu .card {
   background-color: white;
   border-radius: 10px;
@@ -122,7 +121,9 @@ header {
     }
   }
   .add {
+    width: 0%;
     overflow-x: hidden;
+    transition: all 1s ease-in-out;
     i {
       visibility: hidden;
     }
@@ -132,16 +133,13 @@ header {
     .dish h4, .dish-info {
       width: 75%;
     }
-    .price {
-      // animation: move-price .5s both;
-    }
     .add {
-      animation: add-check 1s ease-in-out both;
       background-color: $tertiary-color;
       border-radius: 0 10px 10px 0;
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 25%;
       i {
         font-size: 1.3em;
         color: white;
