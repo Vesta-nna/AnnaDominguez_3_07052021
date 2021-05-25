@@ -1,10 +1,5 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap");
-@keyframes move-price {
-  100% {
-    transform: translateX(-10%);
-  }
-}
 @keyframes add-check {
   from {
     width: 0;
@@ -76,6 +71,22 @@ footer a i + p {
 }
 footer p {
   padding: 0.25em 0;
+}
+
+.spinner {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4;
+  animation: fade-out 0.4s ease-in-out both;
+  animation-delay: 1.5s;
+}
+.spinner i {
+  color: #99e2d0;
 }
 
 main {
@@ -353,9 +364,6 @@ header h1 {
 }
 #menu .card:hover .dish h4, #menu .card:hover .dish-info {
   width: 75%;
-}
-#menu .card:hover .price {
-  animation: move-price 0.5s both;
 }
 #menu .card:hover .add {
   animation: add-check 1s ease-in-out both;
@@ -6554,21 +6562,6 @@ body {
   font-size: 16px;
   display: grid;
   grid-template-columns: 1fr;
-}
-body .spinner {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 4;
-  animation: fade-out 0.4s ease-in-out both;
-  animation-delay: 1.5s;
-}
-body .spinner i {
-  color: #99e2d0;
 }
 
 .center {

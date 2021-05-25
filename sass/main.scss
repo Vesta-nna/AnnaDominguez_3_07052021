@@ -6,6 +6,7 @@
 // LAYOUT
 @import "layout/_header.scss";
 @import "layout/_footer.scss";
+@import "layout/_spinner.scss";
 
 // PAGES
 @import "pages/_index.scss";
@@ -53,21 +54,21 @@ body {
   font-size: 16px;
   display: grid;
   grid-template-columns: 1fr;
-  .spinner {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 4;
-    i {
-      color: $tertiary-color;
-    }
-    animation: fade-out .4s ease-in-out both;
-    animation-delay: 1.5s;
-  }
+  // .spinner {
+  //   position: fixed;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-color: white;
+  //   display: flex;
+  //   align-items: center;
+  //   justify-content: center;
+  //   z-index: 4;
+  //   i {
+  //     color: $tertiary-color;
+  //   }
+  //   animation: fade-out .4s ease-in-out both;
+  //   animation-delay: 1.5s;
+  // }
 }
   
 .center {
