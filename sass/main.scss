@@ -6,7 +6,6 @@
 // LAYOUT
 @import "layout/_header.scss";
 @import "layout/_footer.scss";
-@import "layout/_spinner.scss";
 
 // PAGES
 @import "pages/_index.scss";
@@ -15,6 +14,10 @@
 // COMPONENTS
 @import "components/_button.scss";
 @import "components/_like.scss";
+@import "components/_cover.scss";
+@import "components/_spinner.scss";
+@import "components/_title.scss";
+
 
 // FONT FAMILY
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shrikhand&display=swap');
@@ -23,6 +26,8 @@
 @import "scss/fontawesome.scss";
 @import "scss/solid.scss";
 @import "scss/regular.scss";
+
+
 
 // RESET DEFAULT CSS SETTINGS
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption {
@@ -34,44 +39,55 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   background: transparent;
 }
 
-a {
-  color: black;
-  text-decoration: none; /* no underline */
-  cursor: pointer;
-}
 
-html {
-  width: 100%;
-}
 
 // END RESET
 
 
 body {
-  width: 100%;
   height: 100%;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
   display: grid;
   grid-template-columns: 1fr;
 }
-  
-.center {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-}
 
-h1 {
-  font-family: 'Shrikhand', cursive;
-  padding: .25em
-}
-
-// HEADER
-.cover {
-  object-fit: cover;
+html, body {
   width: 100%;
 }
+
+@media screen and (min-width: 1920px)
+{
+  html {
+    width: 100%;
+    height: 100%;
+  }
+
+  * {
+    font-size: 20px;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 1920px;
+    margin: 0 auto;
+    height: 100%;
+  }
+}
+
+
+  
+// .center {
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     margin: auto;
+// }
+
+
+
+// HEADER
