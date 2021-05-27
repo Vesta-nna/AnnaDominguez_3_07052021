@@ -123,8 +123,13 @@ header {
   .add {
     width: 0%;
     overflow-x: hidden;
-    transition: all 1s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .75s ease-in-out;
     i {
+      transition: all .75s ease-in-out;
+      color: white;
       visibility: hidden;
     }
   }
@@ -136,13 +141,10 @@ header {
     .add {
       background-color: $tertiary-color;
       border-radius: 0 10px 10px 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       width: 25%;
       i {
+        transform: rotate(360deg);
         font-size: 1.3em;
-        color: white;
         visibility: visible;
       }
     }

@@ -333,9 +333,14 @@ header h1 {
 #menu .card .add {
   width: 0%;
   overflow-x: hidden;
-  transition: all 1s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.75s ease-in-out;
 }
 #menu .card .add i {
+  transition: all 0.75s ease-in-out;
+  color: white;
   visibility: hidden;
 }
 #menu .card:hover {
@@ -347,14 +352,11 @@ header h1 {
 #menu .card:hover .add {
   background-color: #99e2d0;
   border-radius: 0 10px 10px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 25%;
 }
 #menu .card:hover .add i {
+  transform: rotate(360deg);
   font-size: 1.3em;
-  color: white;
   visibility: visible;
 }
 
